@@ -10,6 +10,7 @@ import ChefMixologist from './pages/ChefMixologist'
 
 const App = () => {
   const basename = import.meta.env.BASE_URL
+  console.log("Vite Base URL:", basename)
 
   return (
     <Router basename={basename}>

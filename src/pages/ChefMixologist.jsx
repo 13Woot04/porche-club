@@ -11,7 +11,7 @@ const ChefMixologist = () => {
           {/* Chef Image */}
           <div className="order-1 md:order-1 flex justify-center">
             <img 
-              src="/chef-and-mixologist/chef.jpeg" 
+              src={`${import.meta.env.BASE_URL}chef-and-mixologist/chef.jpeg`} 
               alt="Chef Ashish Bhasin" 
               className="rounded-full shadow-medium max-w-md h-auto"
             />
@@ -52,7 +52,7 @@ const ChefMixologist = () => {
           {/* Mixologist Image */}
           <div className="order-1 md:order-2 flex justify-center">
              <img 
-              src="/chef-and-mixologist/mixologist.jpeg" 
+              src={`${import.meta.env.BASE_URL}chef-and-mixologist/mixologist.jpeg`} 
               alt="Mixologist Viju Raj" 
               className="rounded-full shadow-medium max-w-md h-auto"
             />
