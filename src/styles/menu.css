@@ -1,0 +1,628 @@
+/* Menu Flipbook Styles */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+@keyframes flipIn {
+  from {
+    transform: rotateY(-180deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-flip-in {
+  animation: flipIn 0.7s ease-out;
+}
+
+/* Page turn effect */
+.page-turn {
+  position: relative;
+  transform-origin: left center;
+}
+
+.page-turn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(to left, rgba(0,0,0,0.2), transparent);
+  transition: width 0.5s ease-out;
+}
+
+.page-turn:hover::before {
+  width: 50px;
+}
+
+/* DearFlip Custom Styles */
+.df-container {
+  background: transparent !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.df-loading {
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+
+.df-loading-inner {
+  color: white !important;
+}
+
+.df-loading-spinner {
+  border-color: rgba(255, 255, 255, 0.2);
+  border-left-color: white;
+}
+
+/* Custom toolbar styles */
+.df-ui-wrapper {
+  background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+}
+
+.df-ui-btn {
+  color: white !important;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.df-ui-btn:hover {
+  opacity: 1;
+}
+
+/* Custom page flip effect */
+.df-book-page {
+  background: white !important;
+}
+
+.df-book-page.df-flipping {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Thumbnails panel */
+.df-thumb-container {
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(8px);
+}
+
+.df-thumb {
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.df-thumb:hover {
+  border-color: white;
+}
+
+/* Flipbook Styles */
+.flipbook-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flipbook {
+  margin: auto;
+  display: none;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Loading styles */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+/* Navigation controls */
+.fb-nav {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 30px;
+  backdrop-filter: blur(8px);
+}
+
+.fb-nav button {
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.fb-nav button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Zoom controls */
+.zoom-controls {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+
+/* Page number display */
+.page-number {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 14px;
+  backdrop-filter: blur(8px);
+}
+
+/* Menu viewer styles */
+.menu-viewer {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 250px);
+  background: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Menu container */
+.menu-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.menu-pages {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Menu page */
+.menu-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease-in-out;
+  background: white;
+}
+
+/* Navigation buttons */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: translateY(-50%) scale(1);
+}
+
+.nav-button.left {
+  left: 20px;
+}
+
+.nav-button.right {
+  right: 20px;
+}
+
+/* Loading overlay */
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Page indicator */
+.page-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+
+/* Dot navigation styles */
+.dot-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: none;
+  position: relative;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dot.active {
+  background: #fff;
+}
+.dot:focus-visible {
+  outline: 2px solid #00e6b8;
+}
+
+/* Remove thumbnail nav styles */
+.thumbnail-nav, .thumbnail, .thumbnail img { display: none !important; }
+
+/* Only non-center images are blurred (handled in JS, but reinforce here) */
+.slider-flex-item[style*='scale(1.08)'] .slider-img {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Custom slider styles inspired by SketchzLab */
+.custom-slider {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 250px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.flex-track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(.77,0,.18,1);
+}
+
+.slider-flex-item {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 350px;
+  position: relative;
+  transition: z-index 0s;
+  opacity: 1 !important;
+}
+
+.slider-img {
+  max-width: 60vw;
+  max-height: 70vh;
+  min-width: 250px;
+  min-height: 300px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  object-fit: contain;
+  background: #fff;
+  transition:
+    transform 0.5s cubic-bezier(.77,0,.18,1),
+    filter 0.5s cubic-bezier(.77,0,.18,1),
+    opacity 0.5s cubic-bezier(.77,0,.18,1),
+    z-index 0s;
+  opacity: 0.7;
+  filter: blur(4px) grayscale(30%);
+  pointer-events: none;
+}
+
+.slider-flex-item {
+  /* Default: out of view */
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.slider-flex-item[style*='scale(1.08)'] {
+  /* Center */
+  opacity: 1 !important;
+  pointer-events: auto;
+  z-index: 2;
+}
+.slider-flex-item[style*='scale(0.85)'][style*='rotateY(10deg)'] {
+  /* Left */
+  opacity: 0.6 !important;
+  z-index: 1;
+}
+.slider-flex-item[style*='scale(0.85)'][style*='rotateY(-10deg)'] {
+  /* Right */
+  opacity: 0.6 !important;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .slider-img {
+    max-width: 90vw;
+    max-height: 50vh;
+    min-width: 120px;
+    min-height: 180px;
+  }
+}
+
+.menu-viewer.custom-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  min-height: 400px;
+}
+
+.dot-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.custom-slider-track,
+.flex-track {
+  overflow-x: hidden !important;
+  min-height: 350px;
+}
+
+.custom-slider-track::-webkit-scrollbar,
+.flex-track::-webkit-scrollbar {
+  display: none !important;
+}
+
+.slider-flex-item[style*='scale(1.08)'] .slider-img {
+  filter: none !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* Carousel styles */
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+.carousel-image-wrapper {
+  width: 100%;
+  max-width: 800px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  overflow: hidden;
+  position: relative;
+}
+.carousel-image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 18px;
+  transition: opacity 0.3s, transform 0.3s;
+  background: #fff;
+}
+.carousel-arrow {
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+  opacity: 0.85;
+}
+.carousel-arrow.left { left: -64px; }
+.carousel-arrow.right { right: -64px; }
+.carousel-arrow.disabled { opacity: 0.3; cursor: not-allowed; }
+.carousel-arrow:focus-visible { outline: 2px solid #00e6b8; }
+
+/* Dot navigation (reuse previous minimal style) */
+.dot-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 0 0;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: none;
+  position: relative;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dot.active {
+  background: #fff;
+}
+.dot:focus-visible {
+  outline: 2px solid #00e6b8;
+}
+
+/* Drinks carousel styles */
+.drinks-carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  margin: 0 auto;
+  position: relative;
+}
+.drinks-carousel-image-wrapper {
+  width: auto;
+  min-height: 600px;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  overflow: hidden;
+  position: relative;
+}
+.drinks-carousel-image {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: contain;
+  border-radius: 18px;
+  transition: opacity 0.3s, transform 0.3s;
+  background: #fff;
+}
+
+/* Arch image section styles - white background, semi-circle top, square bottom */
+.arch-image-bg-white {
+  /* background: #fff; */
+  /* box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07); */
+  position: relative;
+}
+.arch-image-ellipse {
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #fff;
+}
+@media (max-width: 1100px) {
+  .arch-image-bg-white { width: 180px; height: 240px; }
+} 
