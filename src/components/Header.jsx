@@ -40,7 +40,7 @@ const Header = () => {
               className="relative z-10 flex items-center group"
             >
               <img 
-                src="/logo-porche.webp" 
+                src={`${import.meta.env.BASE_URL}logo-porche.webp`}
                 alt="Porche Logo" 
                 className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
               />

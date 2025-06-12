@@ -21,7 +21,7 @@ const Menu = () => {
         const imagePromises = Array.from({ length: totalPages }, (_, i) => {
           return new Promise((resolve, reject) => {
             const img = new Image();
-            img.src = `/food-menu/page${i + 1}.jpeg`;
+            img.src = `${import.meta.env.BASE_URL}food-menu/page${i + 1}.jpeg`;
             img.onload = resolve;
             img.onerror = reject;
           });
@@ -45,7 +45,7 @@ const Menu = () => {
         const imagePromises = Array.from({ length: totalDrinksPages }, (_, i) => {
           return new Promise((resolve, reject) => {
             const img = new Image();
-            img.src = `/drinks-menu/page${i + 1}.jpg`;
+            img.src = `${import.meta.env.BASE_URL}drinks-menu/page${i + 1}.jpg`;
             img.onload = resolve;
             img.onerror = reject;
           });
@@ -143,7 +143,7 @@ const Menu = () => {
                 </div>
               ) : (
                 <img
-                  src={`/food-menu/page${currentPage}.jpeg`}
+                  src={`${import.meta.env.BASE_URL}food-menu/page${currentPage}.jpeg`}
                   alt={`Menu Page ${currentPage}`}
                   className="carousel-image w-full h-full max-w-[800px] max-h-[800px] aspect-square object-cover mx-auto"
                   loading="eager"
@@ -206,7 +206,7 @@ const Menu = () => {
                 </div>
               ) : (
                 <img
-                  src={`/drinks-menu/page${currentDrinkPage}.jpg`}
+                  src={`${import.meta.env.BASE_URL}drinks-menu/page${currentDrinkPage}.jpg`}
                   alt={`Drinks Menu Page ${currentDrinkPage}`}
                   className="drinks-carousel-image"
                   loading="eager"

@@ -9,8 +9,10 @@ import Contact from './pages/Contact'
 import ChefMixologist from './pages/ChefMixologist'
 
 const App = () => {
+  const basename = import.meta.env.BASE_URL
+
   return (
-    <Router>
+    <Router basename={basename}>
       <div className="min-h-screen flex flex-col bg-white">
         <Header />
         <main className="flex-grow">
@@ -20,7 +22,7 @@ const App = () => {
             <Route path="/test-pdf" element={
               <div style={{ width: '100%', height: '100vh' }}>
                 <iframe 
-                  src="/PORCHE_Menu-1.pdf" 
+                  src={`${import.meta.env.BASE_URL}PORCHE_Menu-1.pdf`}
                   style={{ width: '100%', height: '100%' }}
                   title="PDF Test"
                 />
