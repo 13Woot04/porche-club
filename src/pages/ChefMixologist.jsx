@@ -1,4 +1,6 @@
 import React from 'react';
+import chefImage from '../assets/chef-and-mixologist/chef.jpeg'
+import mixologistImage from '../assets/chef-and-mixologist/mixologist.jpeg'
 
 const ChefMixologist = () => {
   return (
@@ -11,7 +13,7 @@ const ChefMixologist = () => {
           {/* Chef Image */}
           <div className="order-1 md:order-1 flex justify-center">
             <img 
-              src={`${import.meta.env.BASE_URL}chef-and-mixologist/chef.jpeg`} 
+              src={chefImage} 
               alt="Chef Ashish Bhasin" 
               className="rounded-full shadow-medium max-w-md h-auto"
             />
@@ -52,7 +54,7 @@ const ChefMixologist = () => {
           {/* Mixologist Image */}
           <div className="order-1 md:order-2 flex justify-center">
              <img 
-              src={`${import.meta.env.BASE_URL}chef-and-mixologist/mixologist.jpeg`} 
+              src={mixologistImage} 
               alt="Mixologist Viju Raj" 
               className="rounded-full shadow-medium max-w-md h-auto"
             />

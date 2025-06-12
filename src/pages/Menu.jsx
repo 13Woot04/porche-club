@@ -1,27 +1,70 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/menu.css';
 
+import foodMenuPage1 from '../assets/food-menu/page1.jpeg'
+import foodMenuPage2 from '../assets/food-menu/page2.jpeg'
+import foodMenuPage3 from '../assets/food-menu/page3.jpeg'
+import foodMenuPage4 from '../assets/food-menu/page4.jpeg'
+import foodMenuPage5 from '../assets/food-menu/page5.jpeg'
+import foodMenuPage6 from '../assets/food-menu/page6.jpeg'
+import foodMenuPage7 from '../assets/food-menu/page7.jpeg'
+import foodMenuPage8 from '../assets/food-menu/page8.jpeg'
+import foodMenuPage9 from '../assets/food-menu/page9.jpeg'
+import foodMenuPage10 from '../assets/food-menu/page10.jpeg'
+
+import drinkMenuPage1 from '../assets/drinks-menu/page1.jpg'
+import drinkMenuPage2 from '../assets/drinks-menu/page2.jpg'
+import drinkMenuPage3 from '../assets/drinks-menu/page3.jpg'
+import drinkMenuPage4 from '../assets/drinks-menu/page4.jpg'
+import drinkMenuPage5 from '../assets/drinks-menu/page5.jpg'
+import drinkMenuPage6 from '../assets/drinks-menu/page6.jpg'
+import drinkMenuPage7 from '../assets/drinks-menu/page7.jpg'
+import drinkMenuPage8 from '../assets/drinks-menu/page8.jpg'
+import drinkMenuPage9 from '../assets/drinks-menu/page9.jpg'
+import drinkMenuPage10 from '../assets/drinks-menu/page10.jpg'
+import drinkMenuPage11 from '../assets/drinks-menu/page11.jpg'
+import drinkMenuPage12 from '../assets/drinks-menu/page12.jpg'
+import drinkMenuPage13 from '../assets/drinks-menu/page13.jpg'
+import drinkMenuPage14 from '../assets/drinks-menu/page14.jpg'
+import drinkMenuPage15 from '../assets/drinks-menu/page15.jpg'
+import drinkMenuPage16 from '../assets/drinks-menu/page16.jpg'
+import drinkMenuPage17 from '../../src/assets/drinks-menu/page17.jpg'
+import drinkMenuPage18 from '../assets/drinks-menu/page18.jpg'
+
+console.log("Menu: foodMenuPage1", foodMenuPage1)
+console.log("Menu: drinkMenuPage1", drinkMenuPage1)
+
 const Menu = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const totalPages = 10; // We have 10 menu images
+  const foodMenuImages = [
+    foodMenuPage1, foodMenuPage2, foodMenuPage3, foodMenuPage4, foodMenuPage5,
+    foodMenuPage6, foodMenuPage7, foodMenuPage8, foodMenuPage9, foodMenuPage10
+  ]
 
   // Drinks carousel state
   const [currentDrinkPage, setCurrentDrinkPage] = useState(1);
   const [isDrinksLoading, setIsDrinksLoading] = useState(true);
   const [drinksError, setDrinksError] = useState(null);
   const totalDrinksPages = 18;
+  const drinkMenuImages = [
+    drinkMenuPage1, drinkMenuPage2, drinkMenuPage3, drinkMenuPage4, drinkMenuPage5,
+    drinkMenuPage6, drinkMenuPage7, drinkMenuPage8, drinkMenuPage9, drinkMenuPage10,
+    drinkMenuPage11, drinkMenuPage12, drinkMenuPage13, drinkMenuPage14, drinkMenuPage15,
+    drinkMenuPage16, drinkMenuPage17, drinkMenuPage18
+  ]
 
   // Preload images
   useEffect(() => {
     const preloadImages = async () => {
       try {
         setIsLoading(true);
-        const imagePromises = Array.from({ length: totalPages }, (_, i) => {
+        const imagePromises = foodMenuImages.map(imgSrc => {
           return new Promise((resolve, reject) => {
             const img = new Image();
-            img.src = `${import.meta.env.BASE_URL}food-menu/page${i + 1}.jpeg`;
+            img.src = imgSrc;
             img.onload = resolve;
             img.onerror = reject;
           });
@@ -42,10 +85,10 @@ const Menu = () => {
     const preloadDrinksImages = async () => {
       try {
         setIsDrinksLoading(true);
-        const imagePromises = Array.from({ length: totalDrinksPages }, (_, i) => {
+        const imagePromises = drinkMenuImages.map(imgSrc => {
           return new Promise((resolve, reject) => {
             const img = new Image();
-            img.src = `${import.meta.env.BASE_URL}drinks-menu/page${i + 1}.jpg`;
+            img.src = imgSrc;
             img.onload = resolve;
             img.onerror = reject;
           });
@@ -143,7 +186,7 @@ const Menu = () => {
                 </div>
               ) : (
                 <img
-                  src={`${import.meta.env.BASE_URL}food-menu/page${currentPage}.jpeg`}
+                  src={foodMenuImages[currentPage - 1]}
                   alt={`Menu Page ${currentPage}`}
                   className="carousel-image w-full h-full max-w-[800px] max-h-[800px] aspect-square object-cover mx-auto"
                   loading="eager"
@@ -206,7 +249,7 @@ const Menu = () => {
                 </div>
               ) : (
                 <img
-                  src={`${import.meta.env.BASE_URL}drinks-menu/page${currentDrinkPage}.jpg`}
+                  src={drinkMenuImages[currentDrinkPage - 1]}
                   alt={`Drinks Menu Page ${currentDrinkPage}`}
                   className="drinks-carousel-image"
                   loading="eager"

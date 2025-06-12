@@ -3,6 +3,21 @@ import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import ScrollVelocity from '../components/ScrollVelocity'
 
+import heroBg from '../assets/hero-bg.png'
+import foodMenuImg from '../assets/foodMenu.jpg'
+import drinksMenuImg from '../assets/drinksMenu.jpg'
+import pic1 from '../assets/homepic/pic1.jpeg'
+import pic2 from '../assets/homepic/pic2.jpeg'
+import pic3 from '../assets/homepic/pic3.jpeg'
+import pic4 from '../assets/homepic/pic4.jpeg'
+import porcheMixReel from '../assets/videos/Porche-mix-reel.mp4'
+
+console.log("Home: heroBg", heroBg)
+console.log("Home: foodMenuImg", foodMenuImg)
+console.log("Home: drinksMenuImg", drinksMenuImg)
+console.log("Home: pic1", pic1)
+console.log("Home: porcheMixReel", porcheMixReel)
+
 const TiltedCard = ({ children }) => {
   const ref = useRef(null)
   const frame = useRef()
@@ -59,7 +74,7 @@ const Home = () => {
         {/* Even brighter overlay for contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40 z-10"></div>
         {/* Background image */}
-        <div className="absolute inset-0 bg-cover bg-center bg-fixed z-0" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}hero-bg.png)` }}></div>
+        <div className="absolute inset-0 bg-cover bg-center bg-fixed z-0" style={{ backgroundImage: `url(${heroBg})` }}></div>
         {/* Content */}
         <div className="relative z-20 container mx-auto flex flex-col items-center justify-center text-center px-4">
           <h1 className={`text-white text-4xl md:text-6xl lg:text-7xl font-display font-semibold drop-shadow-[0_4px_32px_rgba(0,0,0,0.8)] mb-6 transition-opacity duration-1000 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
@@ -113,8 +128,8 @@ const Home = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { title: 'Food Menu', image: `${import.meta.env.BASE_URL}foodMenu.jpg` },
-              { title: 'Drinks Menu', image: `${import.meta.env.BASE_URL}drinksMenu.jpg` }
+              { title: 'Food Menu', image: foodMenuImg },
+              { title: 'Drinks Menu', image: drinksMenuImg }
             ].map((category, index) => (
               <TiltedCard key={category.title}>
                 <Link
@@ -155,11 +170,11 @@ const Home = () => {
       {/* Homepic Arch Image Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto flex flex-row justify-center gap-8">
-          {[1,2,3,4].map((num) => (
-            <div key={num} className="w-[320px] h-[320px] flex items-end justify-center overflow-hidden arch-image-bg-white">
+          {[pic1, pic2, pic3, pic4].map((image, index) => (
+            <div key={index} className="w-[320px] h-[320px] flex items-end justify-center overflow-hidden arch-image-bg-white">
               <img
-                src={`${import.meta.env.BASE_URL}homepic/pic${num}.jpeg`}
-                alt={`Homepic ${num}`}
+                src={image}
+                alt={`Homepic ${index + 1}`}
                 className="w-full h-full object-cover arch-image-ellipse"
                 loading="lazy"
               />
@@ -184,7 +199,7 @@ const Home = () => {
                   loop 
                   playsInline
                 >
-                  <source src={`${import.meta.env.BASE_URL}Porche-mix-reel.mp4`} type="video/mp4" />
+                  <source src={porcheMixReel} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>

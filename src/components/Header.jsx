@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import PorcheLogo from '../assets/logo-porche.webp'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -40,7 +41,7 @@ const Header = () => {
               className="relative z-10 flex items-center group"
             >
               <img 
-                src={`${import.meta.env.BASE_URL}logo-porche.webp`}
+                src={PorcheLogo} 
                 alt="Porche Logo" 
                 className="h-14 w-auto transition-transform duration-300 group-hover:scale-105"
               />
